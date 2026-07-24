@@ -142,7 +142,7 @@ try {
 
         if ($sensor.unit -and $sensor.unit.Trim() -ne "") {
             $value = $xml.CreateElement("value")
-            $value.InnerText = $sensor.value
+            $value.InnerText = ([double]$sensor.value).ToString()
             $result.AppendChild($value) | Out-Null
 
             $unit = $xml.CreateElement("unit")
